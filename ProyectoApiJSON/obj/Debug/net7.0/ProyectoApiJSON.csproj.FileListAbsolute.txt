@@ -1,0 +1,17 @@
+/Users/agustrodmar/RiderProjects/ProyectoApiJSON/ProyectoApiJSON/bin/Debug/net7.0/ProyectoApiJSON
+/Users/agustrodmar/RiderProjects/ProyectoApiJSON/ProyectoApiJSON/bin/Debug/net7.0/ProyectoApiJSON.deps.json
+/Users/agustrodmar/RiderProjects/ProyectoApiJSON/ProyectoApiJSON/bin/Debug/net7.0/ProyectoApiJSON.runtimeconfig.json
+/Users/agustrodmar/RiderProjects/ProyectoApiJSON/ProyectoApiJSON/bin/Debug/net7.0/ProyectoApiJSON.dll
+/Users/agustrodmar/RiderProjects/ProyectoApiJSON/ProyectoApiJSON/bin/Debug/net7.0/ProyectoApiJSON.pdb
+/Users/agustrodmar/RiderProjects/ProyectoApiJSON/ProyectoApiJSON/bin/Debug/net7.0/Newtonsoft.Json.dll
+/Users/agustrodmar/RiderProjects/ProyectoApiJSON/ProyectoApiJSON/obj/Debug/net7.0/ProyectoApiJSON.csproj.AssemblyReference.cache
+/Users/agustrodmar/RiderProjects/ProyectoApiJSON/ProyectoApiJSON/obj/Debug/net7.0/ProyectoApiJSON.GeneratedMSBuildEditorConfig.editorconfig
+/Users/agustrodmar/RiderProjects/ProyectoApiJSON/ProyectoApiJSON/obj/Debug/net7.0/ProyectoApiJSON.AssemblyInfoInputs.cache
+/Users/agustrodmar/RiderProjects/ProyectoApiJSON/ProyectoApiJSON/obj/Debug/net7.0/ProyectoApiJSON.AssemblyInfo.cs
+/Users/agustrodmar/RiderProjects/ProyectoApiJSON/ProyectoApiJSON/obj/Debug/net7.0/ProyectoApiJSON.csproj.CoreCompileInputs.cache
+/Users/agustrodmar/RiderProjects/ProyectoApiJSON/ProyectoApiJSON/obj/Debug/net7.0/ProyectoApiJSON.csproj.CopyComplete
+/Users/agustrodmar/RiderProjects/ProyectoApiJSON/ProyectoApiJSON/obj/Debug/net7.0/ProyectoApiJSON.dll
+/Users/agustrodmar/RiderProjects/ProyectoApiJSON/ProyectoApiJSON/obj/Debug/net7.0/refint/ProyectoApiJSON.dll
+/Users/agustrodmar/RiderProjects/ProyectoApiJSON/ProyectoApiJSON/obj/Debug/net7.0/ProyectoApiJSON.pdb
+/Users/agustrodmar/RiderProjects/ProyectoApiJSON/ProyectoApiJSON/obj/Debug/net7.0/ProyectoApiJSON.genruntimeconfig.cache
+/Users/agustrodmar/RiderProjects/ProyectoApiJSON/ProyectoApiJSON/obj/Debug/net7.0/ref/ProyectoApiJSON.dll

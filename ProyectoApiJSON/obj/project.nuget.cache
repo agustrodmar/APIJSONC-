@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "J+yqJNaTFmMtIaAweOfxRZegcHo3UjhqhmklGdIHCYszd4ci3zSGj9ibUr2N/DG46BT2FdZB+tV6LGFxC33azw==",
+  "success": true,
+  "projectFilePath": "/Users/agustrodmar/RiderProjects/APIJSONC-/ProyectoApiJSON/ProyectoApiJSON.csproj",
+  "expectedPackageFiles": [
+    "/Users/agustrodmar/.nuget/packages/newtonsoft.json/13.0.3/newtonsoft.json.13.0.3.nupkg.sha512"
+  ],
+  "logs": []
+}
