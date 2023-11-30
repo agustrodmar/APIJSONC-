@@ -3,47 +3,92 @@
 // Resharper Disable All
 public class Program
 {
+    // Declaro mi Main como async para poder usar el await.
     public static async Task Main(string[] args)
     {
-        // Primero busco la url:
-        var url = "https://rickandmortyapi.com/api/character";
-        // objeto de la clase HttpClient
+        // Objeto de la clase 
+        var service = new BuscadorRickyMorty();
         
-        var cliente = new HttpClient();
-        var response = await cliente.GetStringAsync(url);
-        var data = JsonConvert.DeserializeObject<RickAndMortyResponse>(response);
-        var summer = data!.results.FirstOrDefault(c => c.name == "Summer Smith");
-        if (summer != null)
+        // Creo un onjeto de GetPersonaje, elijo Summer Smith
+        var elPersonaje = await service.GetPersonaje("Summer Smith");
+        
+        // Me aseguro de que el personaje no sea nulo, si existe, imprime los datos:
+        if (elPersonaje != null)
         {
-            Console.WriteLine($"Nombre: {summer.name}");
-            Console.WriteLine($"Estado: {summer.status}");
-            Console.WriteLine($"Especie: {summer.species}");
-            Console.WriteLine($"Tipo: {summer.type}");
-            Console.WriteLine($"Género: {summer.gender}");
-            Console.WriteLine($"Origen: {summer.origin.name}");
-            Console.WriteLine($"Ubicación: {summer.location.name}");
+            Console.WriteLine($"Nombre: {elPersonaje.name}");
+            Console.WriteLine($"Estado: {elPersonaje.status}");
+            Console.WriteLine($"Especie: {elPersonaje.species}");
+            Console.WriteLine($"Tipo: {elPersonaje.type}"); // En el caso de Summer, no existe tipo
+            Console.WriteLine($"Género: {elPersonaje.gender}");
+            Console.WriteLine($"Origen: {elPersonaje.origin!.name}");
+            Console.WriteLine($"Ubicación: {elPersonaje.location!.name}");
+            Console.WriteLine("Episodios:");
+            if (elPersonaje.episode != null)
+                foreach (var episode in elPersonaje.episode)
+                {
+                    var episodeNumber = episode.Split('/').Last();
+                    Console.WriteLine(episodeNumber);
+                }
         }
     }
 }
 
-public class RickAndMortyResponse
+/// <summary>
+/// La clase para interactuar con la API
+/// </summary>
+public class BuscadorRickyMorty
 {
-    public Info? info { get; set; }
-    public Personaje[]? results { get; set; }
+    private readonly HttpClient _cliente;
+
+    /// <summary>
+    /// Constructor de la clase
+    /// </summary>
+    public BuscadorRickyMorty()
+    {
+        // Objeto de la clase HttpClient
+        _cliente = new HttpClient();
+    }
+    
+    /// <summary>
+    /// Método para obtener el personaje. Uso POO, le paso un nombre como parámetro, luego llamo al objeto en el Main
+    /// </summary>
+    /// <param name="nombre">El nombre del personaje, como su nombre indica.</param>
+    /// <returns>Devolverá el personaje, o null si este no existe</returns>
+    public async Task<Personaje?> GetPersonaje(string nombre)
+    {
+        var url = "https://rickandmortyapi.com/api/character";
+        var response = await _cliente.GetStringAsync(url);
+        var data = JsonConvert.DeserializeObject<RespuestaRickyMorty>(response);
+        return data!.results!.FirstOrDefault(c => c.name == nombre);
+    }
 }
 
+/// <summary>
+/// Clase para deserializar la respuesta de la API de Rick and Morty.
+/// </summary>
+public class RespuestaRickyMorty
+{
+    /// <summary>
+    /// Información sobre la paginación de los resultados.
+    /// </summary>
+    public Info? info { get; set; }
+    
+    /// <summary>
+    /// Los personajes devueltos por la API.
+    /// </summary>
+    public Personaje[]? results { get; set; }
+}
 public class Info
 {
     public int count { get; set; }
     public int pages { get; set; }
-    public string next { get; set; }
-    public string prev { get; set; }
+    public string? next { get; set; }
+    public string? prev { get; set; }
 }
 
-/**
- * Clase con cada tipo de dato de valor del Json
- * que tiene el personaje
- */
+/// <summary>
+/// Clase para deserializar la información de un personaje...
+/// </summary>
 public class Personaje
 {
     public int id { get; set; }
@@ -54,8 +99,12 @@ public class Personaje
     public string? gender { get; set; }
     public Location? origin { get; set; }
     public Location? location { get; set; }
+    public string[]? episode { get; set; } // A obtengo los episodios en los que sale el pj
 }
 
+/// <summary>
+/// Creo una clase Location, puesto que la voy a usar tanto para origin como para location
+/// </summary>
 public class Location
 {
     public string? name { get; set; }
